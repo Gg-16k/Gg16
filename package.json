@@ -1,0 +1,7 @@
+{
+  "name":"trust-market",
+  "private":true,
+  "version":"1.0.0",
+  "description":"Trust Market full-stack-ready marketplace",
+  "dependencies":{"@neondatabase/serverless":"^1.0.1"}
+}

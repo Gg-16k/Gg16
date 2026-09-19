@@ -1,10 +1,2 @@
-import { db } from '../lib/db.js';
-import { body,clean,json,admin } from '../lib/http.js';
-export default async function handler(req){
- try{const sql=db();
-  if(req.method==='GET'){const rows=await sql`SELECT id,name,rating,body,created_at FROM reviews WHERE status='approved' ORDER BY created_at DESC LIMIT 50`;return json({ok:true,reviews:rows});}
-  if(req.method==='POST'){const x=await body(req);const rating=Number(x?.rating);if(!clean(x?.name,120)||!clean(x?.body,2000)||rating<1||rating>5)return json({ok:false,error:'Invalid review'},400);const r=await sql`INSERT INTO reviews(name,rating,body) VALUES(${clean(x.name,120)},${rating},${clean(x.body,2000)}) RETURNING id`;return json({ok:true,id:r[0].id,status:'pending'},201)}
-  if(req.method==='PATCH'){if(!admin(req))return json({ok:false,error:'Unauthorized'},401);const x=await body(req);const id=Number(x?.id),status=clean(x?.status,20);if(!id||!['approved','rejected'].includes(status))return json({ok:false,error:'Invalid request'},400);await sql`UPDATE reviews SET status=${status} WHERE id=${id}`;return json({ok:true})}
-  return json({ok:false,error:'Method not allowed'},405);
- }catch(e){return json({ok:false,error:e.message},500)}
-}
+const {db}=require('./_db');
+module.exports=async(req,res)=>{const sql=db();if(!sql)return res.status(503).json({error:'Database is not configured yet.'});try{if(req.method==='GET'){const r=await sql`SELECT id,name,rating,text,created_at FROM reviews WHERE status='approved' ORDER BY created_at DESC LIMIT 50`;return res.status(200).json(r);}if(req.method==='POST'){const b=req.body||{};const rating=Math.max(1,Math.min(5,Number(b.rating||0)));if(!b.name||!b.text||!rating)return res.status(400).json({error:'Incomplete review'});const r=await sql`INSERT INTO reviews(name,rating,text,status) VALUES(${b.name},${rating},${b.text},'pending') RETURNING id,status,created_at`;return res.status(201).json(r[0]);}return res.status(405).json({error:'Method not allowed'});}catch(e){return res.status(500).json({error:'Server error'});}};

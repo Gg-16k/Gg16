@@ -8,18 +8,15 @@
 <meta property="og:title" content="Trust Market — Buy, Sell, Grow & Connect">
 <meta property="og:description" content="A local marketplace for property, cars, furniture, jobs, services and ETCARE products.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://trust-market.vercel.app/assets/hero-loft.jpg">
+<meta property="og:url" content="https://trust-market.vercel.app/">
+<meta property="og:image" content="/assets/hero-loft.jpg">
+<meta property="og:image:alt" content="Trust Market — Buy, Sell, Connect">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="robots" content="index,follow">
-<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="twitter:title" content="Trust Market — Buy • Sell • Connect">
+<meta name="twitter:description" content="Homes, land, cars, furniture, jobs, services and ETCARE in one trusted marketplace.">
+<meta name="twitter:image" content="/assets/hero-loft.jpg">
 <link rel="canonical" href="https://trust-market.vercel.app/">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta name="robots" content="index,follow">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="canonical" href="https://trust-market.vercel.app/">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Trust Market — Buy • Sell • Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +37,12 @@
       <a href="#reviews" data-i18n="navReviews">Reviews</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
       <a class="cart-link" href="#cart">🛒 <span data-i18n="cart">Cart</span> <b id="cartCount">0</b></a>
+      <div class="header-social" aria-label="Follow Trust Market">
+        <span>Follow</span>
+        <a href="https://www.facebook.com/profile.php?id=61591650729400" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></a>
+        <a href="https://t.me/Gg16A" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.6 4.7-3.3 15.5c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.2-8.3c.4-.4-.1-.6-.6-.2L5.8 13.8.9 12.3c-1.1-.3-1.1-1 .2-1.5L20.2 3.5c.9-.3 1.7.2 1.4 1.2Z"/></svg></a>
+        <a href="https://wa.me/251923493781" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.2.3 11.7c0 2 .5 3.9 1.4 5.6L.2 24l6.9-1.5c1.5.8 3.2 1.2 5 1.2h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.2-3.5-8.4Zm-8.3 18.1h-.1c-1.5 0-3-.4-4.3-1.1l-.3-.2-4.1.9.9-4-.2-.4a9.7 9.7 0 1 1 8.1 4.8Zm5.3-7.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.4.8-1.4.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3Z"/></svg></a>
+      </div>
       <select id="language" aria-label="Language"><option value="en">English</option><option value="ti">ትግርኛ</option><option value="am">አማርኛ</option><option value="ar">العربية</option><option value="fr">Français</option></select>
     </nav>
   </div>
@@ -73,7 +76,8 @@
       <button class="category-card" onclick="openCategory('furniture')"><span>🛋️</span><strong>Furniture & Electronics</strong><small>Buy • Sell • Find</small><i>Open category →</i></button>
       <button class="category-card" onclick="openCategory('jobs')"><span>💼</span><strong>Jobs & Opportunities</strong><small>Find • Post</small><i>Open category →</i></button>
       <button class="category-card" onclick="openCategory('services')"><span>🔧</span><strong>Professional Services</strong><small>Find • Offer</small><i>Open category →</i></button>
-      <button class="category-card featured" onclick="location.hash='etcare'"><span>🌿</span><strong>ETCARE</strong><small>Products • Shopping</small><i>View all products →</i></button>
+      <button class="category-card featured" onclick="openEtcare()"><span>🌿</span><strong>ETCARE</strong><small>Products • Shopping</small><i>View products & business →</i></button>
+      <button class="category-card" onclick="openBusinessFocus()"><span>💼</span><strong>Business Opportunity</strong><small>Packages • Training • Join</small><i>Open focused area →</i></button>
     </div>
   </div>
 </section>
@@ -82,13 +86,13 @@
   <div class="container">
     <div class="category-toolbar"><div><span class="kicker" id="categoryKicker">CATEGORY</span><h2 id="categoryTitle">Houses & Land</h2><p id="categoryIntro" class="lead-small"></p></div><button class="btn btn-light" onclick="closeCategory()">← All categories</button></div>
     <div class="choice-grid" id="choiceGrid"></div>
-    <div id="publicListings" class="public-listings"></div>
     <div id="categoryPanel" class="category-panel"></div>
   </div>
 </section>
 
 <section id="business" class="section business-section">
   <div class="container">
+    <div class="focus-back"><button class="btn btn-light" type="button" onclick="closeFocus()">← Back to all categories</button><div><span class="kicker">BUSINESS OPPORTUNITY FOCUS AREA</span><small>Packages • Business system • Training • Secure payment</small></div></div>
     <div class="business-hero">
       <div>
         <span class="kicker">BUSINESS OPPORTUNITY</span>
@@ -111,6 +115,7 @@
 
 <section id="etcare" class="section etcare">
   <div class="container">
+    <div class="focus-back"><button class="btn btn-light" type="button" onclick="closeFocus()">← Back to all categories</button><div><span class="kicker">ETCARE FOCUS AREA</span><small>Products • Benefits • Usage • Prices • Business Packages • Share</small></div></div>
     <div class="shop-banner"><div><span class="kicker">ETCARE SHOP</span><h2>Choose one product and buy it directly.</h2><p>No business package is required for individual product purchases. Open any product to see its photo, price, benefits and payment options.</p><button class="btn btn-light" type="button" onclick="buyAllFive()">Buy all 5 products — 4,945.50 ETB after 10% discount</button></div><div class="shop-badge">✓ Clinically Tested<br><span>✓ Certified</span></div></div>
     <div id="productGrid" class="product-grid"></div>
   </div>
@@ -125,7 +130,7 @@
 
 <section id="checkout" class="section checkout">
   <div class="container checkout-grid">
-    <div><span class="kicker">CHECKOUT</span><h2>Send your order for verification.</h2><p class="muted">First complete payment in the official CBE or Telebirr channel. Then return here with your name, phone, payment method and receipt reference.</p><div class="checkout-note"><b>Security</b><span>Trust Market never asks for your PIN, password or OTP.</span></div><div class="international-note"><strong>🌍 International payments</strong><span>Visa, Mastercard &amp; PayPal — <b>Coming Soon</b>. International payment options are currently not active and will be enabled once the required payment services are fully available.</span></div></div>
+    <div><span class="kicker">CHECKOUT</span><h2>Send your order for verification.</h2><p class="muted">First complete payment in the official CBE or Telebirr channel. Then return here with your name, phone, payment method and receipt reference.</p><div class="checkout-note"><b>Security</b><span>Trust Market never asks for your PIN, password or OTP.</span></div></div>
     <form id="orderForm" class="form-card">
       <h3>Order details</h3>
       <label>Full name<input name="name" required autocomplete="name"></label>
@@ -134,7 +139,7 @@
       <label>Payment method<select name="method" required><option value="">Choose one</option><option>CBE</option><option>Telebirr</option></select></label>
       <label>Order details<textarea name="details" id="orderDetails" required></textarea></label>
       <label>Receipt / payment screenshot<input name="receipt" id="receiptFile" type="file" accept="image/*"></label>
-      <small class="muted">Your receipt is submitted privately for order review. It is not displayed in public listings.</small>
+      <small class="muted">The selected image stays on your device. The site prepares your verification message; it does not upload the file to a server.</small>
       <button class="btn btn-primary full" type="submit">Prepare WhatsApp verification</button>
       <div id="orderResult" class="order-result"></div>
     </form>
@@ -146,15 +151,15 @@
     <div class="section-head"><div><span class="kicker">TRUST & REVIEWS</span><h2>Tell us about your experience.</h2></div><p>Customer feedback can help improve the marketplace.</p></div>
     <div class="review-layout">
       <div class="rating-hero"><div class="rating-number" id="ratingAverage">—</div><div class="stars" id="ratingStars">☆☆☆☆☆</div><p id="ratingCount">No ratings yet</p><button class="btn btn-primary" onclick="document.getElementById('reviewForm').scrollIntoView({behavior:'smooth'})">Rate your experience</button></div>
-      <form id="reviewForm" class="review-form"><h3>Leave a rating</h3><label>Your name<input id="reviewName" required placeholder="Your name"></label><label>Rating</label><div class="star-picker" id="starPicker"><button type="button" data-star="1">★</button><button type="button" data-star="2">★</button><button type="button" data-star="3">★</button><button type="button" data-star="4">★</button><button type="button" data-star="5">★</button></div><input type="hidden" id="reviewRating" value="5"><label>Your feedback<textarea id="reviewText" rows="4" required placeholder="Tell us what you liked or what we can improve..."></textarea><button class="btn btn-primary full" type="submit">Prepare review</button><small class="muted">Reviews are sent for moderation before they appear publicly.</small></form>
+      <form id="reviewForm" class="review-form"><h3>Leave a rating</h3><label>Your name<input id="reviewName" required placeholder="Your name"></label><label>Rating</label><div class="star-picker" id="starPicker"><button type="button" data-star="1">★</button><button type="button" data-star="2">★</button><button type="button" data-star="3">★</button><button type="button" data-star="4">★</button><button type="button" data-star="5">★</button></div><input type="hidden" id="reviewRating" value="5"><label>Your feedback<textarea id="reviewText" rows="4" required placeholder="Tell us what you liked or what we can improve..."></textarea><button class="btn btn-primary full" type="submit">Prepare review</button><small class="muted">Reviews are stored only on this device until a shared database is added.</small></form>
     </div>
     <div id="reviewList" class="review-list"></div>
   </div>
 </section>
 
-<section id="contact" class="section contact"><div class="container contact-inner"><div><span class="kicker">CONTACT</span><h2>Trust Market</h2><p>For orders, listings, reviews and business enquiries, reach us directly.</p></div><div class="contact-buttons"><a href="https://t.me/Gg16A" target="_blank" rel="noopener" class="contact-btn">✈️ Telegram</a><a href="https://www.facebook.com/shiremarketlink" target="_blank" rel="noopener" class="contact-btn">📘 Facebook</a><a href="https://wa.me/251923493781" target="_blank" rel="noopener" class="contact-btn">🟢 WhatsApp</a><a href="tel:0923493781" class="contact-btn">📞 Call</a></div></div></section>
+<section id="contact" class="section contact"><div class="container contact-inner"><div><span class="kicker">CONTACT</span><h2>Trust Market</h2><p>For orders, listings, reviews and business enquiries, reach us directly.</p></div><div class="contact-buttons"><a href="https://t.me/Gg16A" target="_blank" rel="noopener" class="contact-btn">✈️ Telegram</a><a href="https://www.facebook.com/profile.php?id=61591650729400" target="_blank" rel="noopener" class="contact-btn">📘 Facebook</a><a href="https://wa.me/251923493781" target="_blank" rel="noopener" class="contact-btn">🟢 WhatsApp</a><a href="tel:0923493781" class="contact-btn">📞 Call</a></div></div></section>
 </main>
-<footer><div class="container footer"><div><div class="logo"><span class="logo-mark">T</span><span>Trust Market</span></div><p class="footer-tagline">BUY • SELL • CONNECT</p></div><div class="follow"><span>Follow Us</span><div class="social-icons"><a href="https://www.facebook.com/shiremarketlink" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3.2l.8-4H13V9c0-.7.3-1 1-1Z" fill="currentColor"/></svg></a><a href="https://t.me/Gg16A" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.5 4.5-3 14.1c-.2 1-1 1.2-1.8.7l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6 11.8l-4.8-1.5c-1-.3-1-1 .2-1.5L20.2 3c.9-.3 1.7.2 1.3 1.5Z" fill="currentColor"/></svg></a><a href="https://wa.me/251923493781" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4a10 10 0 0 0-15.3 12L3 21l5.2-1.7A10 10 0 1 0 20 4Zm-8 16a8 8 0 0 1-4.1-1.1l-.3-.2-3.1 1 1-3-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.2-.6-1.4-.6-.2-.1-.3-.1-.5.1l-.6.8c-.2.2-.3.2-.6.1-1.7-.8-2.8-2.4-2.9-2.5-.2-.3-.7-.9-.7-1.7 0-.7.4-1 .5-1.2.1-.1.2-.2.4-.2h.3c.1 0 .3-.1.4.3l.5 1.1c.1.2.1.3 0 .5l-.3.4c-.1.1-.2.2-.1.4.2.3.5.8.9 1.1.5.5.9.7 1.2.8.2.1.3.1.4-.1l.6-.7c.1-.2.3-.2.5-.1l1.1.5c.2.1.3.2.3.4s-.1.9-.4 1.1Z" fill="currentColor"/></svg></a></div></div><span>© 2026 Trust Market</span><a class="admin-link" href="/admin.html">Admin</a></div></footer>
+<footer><div class="container footer"><div><div class="logo"><span class="logo-mark">T</span><span>Trust Market</span></div><div class="footer-follow"><span>Follow Us</span><a href="https://www.facebook.com/profile.php?id=61591650729400" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></a><a href="https://t.me/Gg16A" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.6 4.7-3.3 15.5c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.2-8.3c.4-.4-.1-.6-.6-.2L5.8 13.8.9 12.3c-1.1-.3-1.1-1 .2-1.5L20.2 3.5c.9-.3 1.7.2 1.4 1.2Z"/></svg></a><a href="https://wa.me/251923493781" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.2.3 11.7c0 2 .5 3.9 1.4 5.6L.2 24l6.9-1.5c1.5.8 3.2 1.2 5 1.2h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.2-3.5-8.4Zm-8.3 18.1h-.1c-1.5 0-3-.4-4.3-1.1l-.3-.2-4.1.9.9-4-.2-.4a9.7 9.7 0 1 1 8.1 4.8Zm5.3-7.2c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.4.8-1.4.1-.2.1-.4 0-.6l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3Z"/></svg></a></div></div><span>© 2026 Trust Market</span></div></footer>
 <div id="paymentModal" class="modal hidden"></div>
 <script src="script.js"></script>
 </body>

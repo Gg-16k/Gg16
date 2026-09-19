@@ -1,0 +1,9 @@
+{
+  "name":"Trust Market — Buy • Sell • Connect",
+  "short_name":"Trust Market",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#f7f8f5",
+  "theme_color":"#0d332b",
+  "description":"A trusted marketplace for homes, land, cars, furniture, jobs, services and ETCARE products."
+}
