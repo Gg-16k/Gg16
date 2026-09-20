@@ -1,7 +1,16 @@
 {
-  "name":"trust-market",
-  "private":true,
-  "version":"1.0.0",
-  "description":"Trust Market full-stack-ready marketplace",
-  "dependencies":{"@neondatabase/serverless":"^1.0.1"}
+  "name": "trust-market",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Trust Market full-stack-ready marketplace",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.1"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  }
 }
